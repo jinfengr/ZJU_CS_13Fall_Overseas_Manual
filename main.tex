@@ -1,0 +1,1580 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 1.1 (11/4/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Mathias Legrand (legrand.mathias@gmail.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% This means that to update the bibliography and index in this template you
+% will need to run the following sequence of commands in the template
+% directory:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s StyleInd.ist
+% 3) biber main
+% 4) pdflatex main
+%
+% This template also uses a number of packages which may need to be
+% updated to the newest versions for the template to compile. It is strongly
+% recommended you update your LaTeX distribution if you have any
+% compilation errors.
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn,openany]{book} % Default font size and left-justified equations
+
+\usepackage[top=3cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=10pt,a4paper]{geometry} % Page margins
+
+\usepackage{xcolor} % Required for specifying colors by name
+\definecolor{ocre}{RGB}{243,102,25} % Define the orange color used for highlighting throughout the book
+
+% Font Settings
+\usepackage{avant} % Use the Avantgarde font for headings
+%\usepackage{times} % Use the Times font for headings
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+%\usepackage[utf8]{inputenc} % Required for including letters with accents
+%\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em plus2mm minus2mm}
+\usepackage[no-math]{fontspec}
+
+\setmainfont{Times}
+\usepackage{xltxtra}
+\defaultfontfeatures{Mapping=tex-text}
+
+
+
+\usepackage{xeCJK}
+\punctstyle{hangmobanjiao}
+\setCJKmainfont[BoldFont=STHeiti,ItalicFont=STFangsong]{SimSun}
+\setCJKsansfont[BoldFont=STHeiti]{STKaiti}
+\setCJKmonofont[BoldFont=STHeiti]{STFangsong}
+
+
+
+% Bibliography
+\usepackage[style=alphabetic,sorting=nyt,sortcites=true,autopunct=true,babel=hyphen,hyperref=true,abbreviate=false,backref=true,backend=biber]{biblatex}
+%\addbibresource{bibliography.bib} % BibTeX bibliography file
+%\defbibheading{bibempty}{}
+
+% Index
+%\usepackage{calc} % For simpler calculation - used for spacing the index letter headings correctly
+%\usepackage{makeidx} % Required to make an index
+%\makeindex % Tells LaTeX to create the files required for indexing
+
+
+
+%----------------------------------------------------------------------------------------
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+
+
+
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,backref=true,pagebackref=true,hyperindex=true,colorlinks=false,breaklinks=true,urlcolor= blue,bookmarks=true,bookmarksopen=false,pdftitle={book title},pdfauthor={book author}}
+
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\AddToShipoutPicture*{\put(6,5){\includegraphics[scale=1]{background}}} % Image background
+\centering
+\vspace*{9cm}
+\par\normalfont\fontsize{35}{35}\sffamily\selectfont
+浙江大学计算机学院与软件学院 2013 飞跃手册\par % Book title
+\vspace*{1cm}
+{\Huge 本书编委会}\par % Author name
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+\chapterimage{chapter_head_1.pdf}
+\chapter*{写在前面}
+申请前，在 PS 中写到我为什么选择出国读 Ph.D. 时，其中一个原因我是这样写的：这是一个能给予我全方位锻炼的机会，我渴望挑战自己。如今，申请已经结束近 5 个月，回想起申请过程中经历的困惑，压力和焦虑，很感谢一路上给予自己帮助的各位朋友，学长和各大 BBS，让我申请一路上成长颇丰。怀着同样的初衷，希望能给学弟学妹们在申请时提供更好的背景参考，我们制作了13 Fall ZJU CS 的飞跃手册。我们希望这本手册能记录下浙大 09 级 CS 申请的宝贵经验，更希望这是一个纽带，能把世界各地的浙大 CSer 们连接起来，将浙大 CS 在海外发扬光大。
+
+2013 Fall CS 申请总体来说情况还是不错的，大家都有个好的去向。这份飞跃手册共收录了 5 个 Ph.D. 申请，15 个CS MS，4 个数字媒体和 5 个转系申请同学的资料。其中 09 级 CS 本科共有 6 位申请攻读 Ph.D.，去向分别是 CMU(1), UIUC(2), UMD(1), Purdue(2)；MS去向多为 CMU 等名校。该手册主要分成 4 块：Ph.D. 申请，CS MS 申请，数媒申请和转系申请。我们从实际案例出发，通过申请信息、背景参考和经验总结三块内容，对申请中重要的几个问题进行了回答，希望能对学弟学妹们有所帮助。
+
+这份手册共收录 29 份同学的背景资料，以及 2 位海外学长的申请总结。这里特别感谢各位同学和 2 位学长的大力支持，让这份飞跃手册最终得以完成！也感谢为这份手册付出的各位同学！
+
+\hfill RJF@2013/05/05
+
+~\vfill
+\thispagestyle{empty}
+
+\noindent 版权所有 \copyright\ 本书编委会\\ % Copyright notice
+未经本书编委会允许，任何组织或个人不得违反相应的版权条例。如果您对本书有任何建议或问题，欢迎咨询XX。
+
+%\noindent \textsc{Published by Publisher}\\ % Publisher
+
+%\noindent \textsc{book-website.com}\\ % URL
+
+\noindent 贡献者（排名不分先后）：a,b,c\\ % License information
+
+\noindent \textit{模版改编自 The Legrand Orange Book} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+
+
+\setcounter{tocdepth}{1}
+\tableofcontents % Print the table of contents itself
+
+\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+
+\cleardoublepage
+\chapter{Ph.D.~申请}
+% start
+
+
+
+\section{饶锦峰}
+\hfill \href{mailto:raojinfeng@gmail.com}{raojinfeng@gmail.com}
+
+
+\noindent\begin{minipage}[t]{0.45\textwidth}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国|加拿大|香港
+\item[MS/PhD] PhD
+\item[申请方向] 数据挖掘，数据库，机器学习
+\item[最终去向] UMD CS PhD, RA + Fellowship (\$21000 9个月)
+\end{description}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}\subsection*{申请结果}
+\noindent PhD Offer:McGill,UMD,UCI,NCSU\\
+PhD AD:OSU(可陶瓷)\\
+Rej:GIT, UMich, UCSD, Purdue, Wisconsin, Northwestern
+\end{minipage}
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.89/3.92/89
+\item[Rank] 10/180
+\item[GRE（V/Q/AW）] 150/168/3.5
+\item[TOEFL] 99
+\end{description}
+
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] CCNT 尹建伟
+\item[论文] 第三作者+SIAM Data Mining Conference
+\item[项目] 1. 北卡科研交流，通过设计一种新的分类方法来提高全球飓风预测的精度
+2. 实验室，做Data Stream的Skyline Query下的方法研究
+3. 数据挖掘下的通过用户购买行为来确定商品相似度
+\item[实习] Microsoft Business Intelligence Team实习3个月
+\item[获奖] 1. 计院何志均奖，二奖三次
+2. 省挑战杯一奖，中国挑战杯银奖
+3. 各类外设奖学金2-3次
+4. ACM，PAT编程比赛小奖
+5. 校省级各种荣誉多个
+\end{description}
+\subsection*{选校标准及经验}
+1. 选校最好拉开层次，比如我冲的学校有：GIT,Purdue,UMD,UCSD,UMich,Wisconsin，一般学校有：OSU，UMN，UCI，保底学校有UCD，港科，NCSU等。
+2. PhD 选校最好根据研究方向来筛选，这会增加你的Match程度，另外PhD相对而言对GT成绩没有那么卡的
+\subsection*{套磁经验}
+1. 套磁要有耐心，最好保持长期套，比如我的Dream School UMD就是套磁来的，我总共发了5-6封邮件，第一封回了鼓励我申请，后来一直没消息，最后一封邮件回我之后，第二天就拿到Offer。
+2. 套磁可以通过教授点对点推荐，这是一条王道，可以极大程度的提高你的录取概率。
+3. 套磁先水套，后针对性学术套。
+\subsection*{PS经验}
+1. PS的话我建议自己写，反复找人和自己修改，像我的PS就改了20次。
+2. PS 我的思路是写自己在Data Mining路上的探索，当时想专心写我对这个领域的兴趣，研究和思考。
+3. PS的话如果是不难的项目就不要写了，或者不要写技术细节，国外教授都很猛的，你是忽悠不过去的。
+\subsection*{最终择校的考虑}
+最后我选择了UMD，拒了Mcgill,UCI，OSU和NCSU.主要是因为UMD综排和专排都相对较高，而且数据库方向在全美都有名，而且第一年给我选择导师的自由。Mcgill相对综排好，但是导师方向太不Match，另外我个人不想去加拿大；UCI导师很牛逼，而且这个学校数据挖掘很强，但是排名和名声在国内差了些，最后还是拒了.
+\subsection*{其他问题经验分享}
+申请的过程多和师兄，同学交流，不要埋头搞自己的，信息很重要。
+套磁也很重要，背景不是很强的同学想拿到Dream PhD Offer只有靠套磁。
+\clearpage
+% finish
+% start
+\section{张嘉伟}
+\hfill \href{mailto:632014362@qq.com}{632014362@qq.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] PhD
+\item[申请方向] CS
+\item[最终去向] Purdue, phd, ece department
+\end{description}
+
+\subsection*{申请结果}
+\noindent offer：purdue\\
+\\
+ad：osu\\
+\\
+rej：maryland,NCSU
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.83/3.89/88.9
+\item[Rank] 24/180
+\item[GRE（V/Q/AW）] 151/170/3.0
+\item[TOEFL] 98
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] cad\&cg Chen Wei
+\item[论文] 1st author
+
+Journal of Computer aided-design and Computer Graphics, Chinese
+\item[项目] 2 years' experience in the lab in ZJU
+
+1 month's experience in NCSU in USA
+\end{description}
+\clearpage
+% finish
+% start
+\section{张鹏}
+\hfill \href{mailto:zpeng91@gmail.com}{zpeng91@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] PhD
+\item[申请方向] 计算机理论
+\item[最终去向] Purdue, PhD
+\end{description}
+
+\subsection*{申请结果}
+\noindent Offer: Purdue, Stony Brook, UBC\\
+Rej: UIUC, Duke, Princeton, Brown
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.87/3.94/88.29
+\item[GRE（V/Q/AW）] 150/167/3.5
+\item[TOEFL] 95
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] 离散优化与算法组，张国川
+\item[实习] MSRA 理论组，大四上半年
+\end{description}
+\subsection*{选校标准及经验}
+主要看有没有自己喜欢的老师吧
+\subsection*{套磁经验}
+基本没有套磁
+\subsection*{其他问题经验分享}
+比较建议多出去看看，实习交流都挺好的，不要局限在浙大这个小圈子里面
+\clearpage
+% finish
+% start
+\section{颜梦佳}
+\hfill \href{mailto:mengjiayan0720@gmail.com}{mengjiayan0720@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国|加拿大
+\item[MS/PhD] PhD
+\item[申请方向] 计算机体系
+\item[最终去向] uiuc phd
+\end{description}
+
+\subsection*{申请结果}
+\noindent Offer: uiuc, umich, uw-madison, osu\\
+ad: ut-austin\\
+rej: ucsd, cmu, gatech\\
+withdraw: psu, utorronto
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.97
+\item[Rank] 2
+\item[GRE（V/Q/AW）] 152+169+3.0
+\item[TOEFL] 106
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] 陈天洲
+\item[论文] 一作, APDCM(Workshop),submit
+\item[项目] 论文相关项目、uc-davis交流时的项目、与体系相关的课程项目若干
+\item[获奖] 两年国奖，一年一奖
+\end{description}
+\subsection*{选校标准及经验}
+根据相关方向当前较为活跃的老师来选校
+\subsection*{套磁经验}
+我的邮件陶瓷并没有特别好的效果，如果申请期间有会议召开，建议学弟学妹可以自己参加会议进行面套
+\subsection*{PS经验}
+我的ps写的蛮普通的，关键是条理清晰，所有的项目都是围绕自己申请的方向展开的
+\subsection*{最终择校的考虑}
+教授人很nice，在终身教授中难得的依然保持活跃
+\clearpage
+% finish
+% start
+\section{张逸萌}
+\hfill \href{mailto:zym1010@gmail.com}{zym1010@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国|加拿大
+\item[MS/PhD] MS,PhD混申
+\item[申请方向] CS, ECE, BME, Neuroscience
+\item[最终去向] CMUCS/CNBC Ph.D. @ CMU, 2500 USD/month (taxable) + tuition waiver
+\end{description}
+
+\subsection*{申请结果}
+\noindent Offer: CS/CNBC Ph.D. @ CMU\\
+Withdraw: LTI Master @ CMU\\
+CSE Ph.D. @ Washington (Seattle)\\
+CS Ph.D. @ UCSD\\
+CS Ph.D., CS Master @ UT Austin\\
+ECE Ph.D. @ GaTech\\
+Neuroscience Ph.D. @ USC\\
+CS Ph.D. @ TAMU\\
+BME Ph.D @ UMN\\
+CS M.Sc. @ UBC\\
+CS M.Sc. @ UofT
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.95/3.97/92.7
+\item[Rank] 1/180
+\item[GRE（V/Q/AW）] 690/800/4.5
+\item[TOEFL] 29+30+24+30=113
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] CCNT Gang Pan, Yueming Wang
+\item[项目] 加拿大 UBC 脑机接口相关项目、与视觉相关国创一项。
+\item[获奖] 国家奖学金、一等奖学金等、智能车校赛二等奖、数模校赛三等奖、ACM 校赛三等奖等。
+\end{description}
+\subsection*{个人申请总结链接}
+http://www.1point3acres.com/bbs/thread-63310-1-1.html
+\subsection*{选校标准及经验}
+我一开始的时候，就打定主意要做与神经计算相关的 research；因为见识少，所以在选校之前，与神经计算相关的领域，我只知道 BCI。然而，在浏览了 US News 前 30 左右的学校（排名我既参考 Computer Engineering 类的排名，也参考 Engineering 类的排名，毕竟做神经计算的，除了 CS，也有 BME、ECE 等专业的老师在做）之后，发现如果只申请 CS（毕竟跨专业难度较大）并且坚持做 BCI，那么我将没有几个学校可以去。所以，我在两个方面做出了改变：1、考虑一些自己没做过但是有相关背景的方向，例如我的 research interest 里面的 1) 和 3)；2、考虑非 CS 专业，如 Neuroscience、BME、ECE。
+
+基于以上的几个原因，我最终得到了文章一开始的项目列表（除了 LTI 是抱着乱填的想法）。回过头想想，我隐隐觉得，Ph.D. 选校，最重要的还是看学校有没有做相关工作的老师。如果相关的老师一个没有，就算那个学校排名再烂，估计也不会要申请者。
+\subsection*{套磁经验}
+我属于模版套，而且我也没有套 CMU。一开始有个 UCSD 的导师还是会得很积极的；不过后来他就突然杳无音信了。感觉套词对于我申请的学校来说用处不大。如果申请 UCLA、Caltech 等学校的话，可能套磁用处就很大了。
+\subsection*{PS经验}
+1、写出自己对申请的方向的兴趣；2、写出自己对申请的方向的一些见解；3、结合自己的相关经历，说服读者，自己是该项目的有力竞争者；4、写作风格好一些，建议找老外修改一下。
+\subsection*{最终择校的考虑}
+因为 CMU 是我申请的最好的学校，而且是第一个来消息的，所以就直接从了。因此，我对择校没什么好说的。
+\subsection*{其他问题经验分享}
+离 CMU 发 offer 已经有些日子了，自己的申请也结束了。我最大的感受有两条：实力重要，运气也同样重要；塞翁失马，焉知非福。
+
+在申请之初，就有一些人和我说，CS Ph.D. 申请很困难，申请者如果没有 paper，去 top 20 的学校是没戏的；还有一些人也和我讲了类似的话，其大致意思就是：CS Ph.D. 难申，没 paper 等亮点更难申。
+
+成功的关键——好的 research interest
+
+所以，在有一段时间里，自己对前途还是感到比较迷茫的。对硬件好，但是科研平平的我来说，最重要的是找到一个可以在众多申请者中突出自己的方法。回过头来想想，自己能拿到 CMU 的 Ph.D. offer，关键就是我在 SOP 中写了一个比较特别的 research interest。与“胡侃CS top school申请（四）——剑走偏锋 ”（http://www.1point3acres.com/bbs/thread-3197-1-1.html）中的情况类似，我也是主要做过两个方向：一个是在 ZJU 实验室的 CV 方向，另一个是在 UBC 实验室的 BCI 方向。我如果申请 CV 方向，一定会被那些手握几篇 CVPR 的大牛们瞬间碾过；而我在 BCI 方面的经验又比较少，如果只申与 BCI 相关的东西，也未必很有优势。
+
+上面的话，总结起来，就是这样的：做过两个方向；经验多的方向大牛太多，经验少的方向体现不出自己优势。
+
+这样看起来，我不管写这两个方向中的任何一个，都会死得很惨。
+
+但是，申请 Ph.D. 时的方向，也不完全是由本科的科研经历精确地决定的。本科和研究生阶段做完全一样的东西的人，应该不多。一段科研经历，也许横着看是与 A 相关的，竖着看就是与 B 相关的。只要本科时有相关背景，研究生时代还是有可能做新的东西的。
+
+所以，我把我的两段科研经历重新审视了一下，看看他们都与哪些领域相关。
+
+CV 经历：CV、ML（我做的 CV 项目的重点其实是一种特别的 SVM 和它的解法）、AI（我只能算有 AI 的背景）。
+BCI 经历：Neural Decoding（直接相关）、Signal Processing（预处理神经信号必备）、Computational Neuroscience（类似 AI，我只能算有这方面的背景）。
+
+根据以上的分析，争取将两段科研经历整合起来，再结合这几年纯 ML、CV 趋于饱和，Computational Neuroscience 有潜力的趋势，及自己喜欢 AI 的兴趣，我在 SOP 里面是如下描述我的 research interest 的。
+
+My research interests lie at the intersection of brain and computation. Specifically, I want to research on three related topics: 1) computational modeling of the brain; 2) pattern recognition of neural data; 3) building brain-inspired artificial systems.
+
+这三个小方向都与大脑、计算有关。其中 1) 完全是没做过，只能算是有相关的背景（如 ML）；2) 就是 BCI；3) 就是以大脑为基础做 AI（比如做基于生物原理的人脸识别，与 CV、ML 有关），算是部分做过，部分有相关背景吧。
+
+可能大家会觉得我的 research interest 比较乱，但这也是无奈（具体原因见选校部分）。无论如何，我还是具备这几个做这几个方向的基本知识和背景的；所以，这个 research interest 也不算太离谱（当然，如果有很 match 这几个方向的人和我竞争，估计我一下子就被踢飞了）。
+\clearpage
+% finish
+% start
+\section{刘伟聪}
+\hfill \href{mailto:3090104684@zju.edu.cn}{3090104684@zju.edu.cn}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 香港
+\item[MS/PhD] PhD
+\item[申请方向] machine learning;pattern recognition;financial engineering;computer vision
+\item[最终去向] CUHK CS PhD。教授的funding，14000HKD每月。金融工程相关。
+\end{description}
+
+\subsection*{申请结果}
+\noindent Offer: HK PolyU; HK CityU; CUHK\\
+\\
+Withdraw:HKUST HKU
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.73/NA/85.3
+\item[TOEFL] 94
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] 智能控制研究所+刘勇副教授
+\item[论文] 4作，International Journal of Advanced Robotics(SCI)
+
+4作，International Joint Conference of Artificial Intelligence，后来被拒了
+
+1作，International Conference of Image and Graphics(EI)，在审稿
+\item[项目] The 14th Zhejiang University Student Research Training Program (SRTP)
+
+
+
+  Developing a simple but complete face recognition system using MATLAB 
+
+  Reading some books and many papers about face recognition and classification
+
+  Implementing many face recognition algorithms using MATLAB, including PCA, LDA, 2D-PCA, Sparse Representation and Extreme Learning Machine
+
+
+
+A paper about applying Extreme Learning Machine in face recognition
+
+
+
+  Analyzing the possibility of applying both kernel and non-kernel ELM in face recognition
+
+  Suggesting how to choose the arguments and kernel function when applying ELM in face recognition
+
+  Making a comparison between ELM and SVM
+
+  Providing a possible explanation on why ELM has better performance in face recognition than SVM
+
+  The paper is finished and waiting to be submitted.
+
+
+
+A paper about feature selection based on rough set theory under associate professor Liu Yong in State Key Lab of Industrial Control Technology
+
+
+
+  Proposing a new metric function about evaluating the importance of features
+
+  Being responsible for doing experiment to prove the efficiency of our metric function
+
+  Recent experiments have shown the advantage of the new metric function.
+
+  The paper is almost finished.
+
+
+
+A paper in hand about non-negative matrix factorization
+
+
+
+  Proposing a new framework to unite some different kinds of non-negative matrix factorization algorithms into one system
+
+  Also being responsible for the experimental part
+
+
+
+A paper named Multi-robot Remote Interaction with FS-MAS
+
+The need to reduce bandwidth, improve productivity, autonomy, and scalability in multi-robot teleoperation has been recognized for a long time. In this article we propose a novel finite state machine mobile agent based network interaction service model, namely FS-MAS. This model consists of three finite state machines
+
+The paper is accepted by International Journal of Advanced Robotic Systems (SCI)
+
+
+
+A group project to develop a GRE writing practice test system using VB
+
+
+
+  Working as the group leader of four members
+
+  Adding new functions into the software different from the traditional one
+\item[实习] 算法组算法工程师@杭州藏愚科技
+\item[获奖] Third-Class Scholarship for Outstanding Students, awarded by Zhejiang University, 2009-2010
+
+  First Price of Calculus Competition in Zhejiang Province, 2010
+
+  Second Price of College Physics Innovation Contest in Zhejiang Province, 2010 
+
+  Winning Price of Zhejiang in National Mathematical Competition, 2010
+\end{description}
+\subsection*{选校标准及经验}
+香港的计算机系以HKUST为首，CUHK稍差一些，但是也很好，因此我的想法是哪个先给offer就从了哪一个。因为HKU的研究方向跟我想的很不一样，因此完全没考虑去HKU，当时面试的时候对方问是否愿意改变研究方向去HKU，我直接回答不愿意。其实CityU的计算机系也比较强，做machine learning和computer vision都有非常不错的老师。PolyU稍差一些，不过也有非常不错的老师，对于博士来说，导师还是非常重要的。
+\subsection*{套磁经验}
+一开始对自己没什么信心，开始套的都是PolyU和CityU的导师，虽然两个老师都不错，但是毕竟学校的排名可能还不如我浙，心里还是不太舒服。据我了解，陶瓷HKUST的教授是最管用的，他们有权力直接给学生offer，其他如CityU PolyU和HKU都有一定的作用，但是CUHK比较奇葩，他们更关注成绩，不鼓励申请学生陶瓷。
+\subsection*{最终择校的考虑}
+一开始已经准备去CityU跟一个做machine learning非常不错的AP，但是CUHK来了之后，最终还是选择了CUHK，而且选择了一个跟我本科一直在做的machine learning不那么相关的一个老师，主要是做优化和时间序列。最终的决定原因是：如果跟了cityu的AP，我几乎可以想见我的一辈子是怎么度过的，读完博士读博后，读完博后回国找个教职，一辈子结束了。但是跟CUHK的Prof Benjamin Wah，我觉得我的人生还有很多的可能。Wah老师做的内容比较广泛，我可以有比较大的选择余地。Wah老师是绝对的业界大牛，他是IEEE fellow，ACM fellow，AAAS fellow，同时是UIUC的讲席教授，CUHK的常务副校长。他的资源对我以后不管是进入工业界还是学术界都有极大的帮助。并且，我在跟他聊天的一个多小时里，对他理解的学术不能认同的更多。他认为即使是做理论也是应该以真正的问题为中心的，许多machine learning顶级会议上面的文章，都在实验里证明他们的算法更好，大多数所谓的最好的算法，最终都存在于论文里，而没有对真正的实际问题的解决产生任何影响。我觉得计算机科学始终是一个偏应用的学科，如果你做的理论只存在于论文里，它的价值何在？同时，我认为Wah老师的研究涉及很多数学基础，以后即使我想回到machine learning上来，有了坚实的数学基础，相信也不是难事。
+\subsection*{其他问题经验分享}
+我觉得我的申请过程之所以比较曲折，就是因为我的GPA比较低，虽然有比较多的项目经验，也有论文，但是香港对于GPA的关注可能要超过这两点。另外，我认为如果是申请machine learning和computer vision的话，眼光不必局限于计算机系，香港的一些别的专业EE甚至IE都有做这方面非常好的老师。比如CUHK的汤晓鸥，是业界闻名的牛人，他就不是计算机系的。
+\clearpage
+% finish
+% start
+\section{杜繁}
+\hfill \href{mailto:dufan2013@gmail.com}{dufan2013@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] PhD
+\item[申请方向] HCI
+\item[最终去向] UMD, CS PhD
+\end{description}
+
+\subsection*{申请结果}
+\noindent Offer: UMD, Purdue, Stony Brook, Pittsburg\\
+Rej: Stanford, UCB, Gatech, UW, UMich, UCSD
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.70 / 3.87 / 85.31
+\item[Rank] 6 / 225 （竺院）
+\item[GRE（V/Q/AW）] 150/162/3.5
+\item[TOEFL] 107
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] CAD\&CG 耿卫东
+\item[论文] 二作 EuroVis
+\item[项目] 浙大CAD\&CG实验室2个项目（偏Graphics方向），课程大作业（水），香港科技大学1个项目（偏HCI方向，大四秋冬学期科研交流）
+\item[实习] 2个IT企业暑期实习
+\item[获奖] 大三竺院一奖
+\end{description}
+\subsection*{选校标准及经验}
+选校时，筛选出USNews专业排名前50，有HCI方向实验室，有好导师的学校
+\subsection*{套磁经验}
+少量模板套磁，问招不招人。均没有回复，可能已经对中国学生的套磁免疫了
+\subsection*{PS经验}
+侧重几段经历详细写，不要大而全
+\subsection*{最终择校的考虑}
+UMD的优点是：在HCI方向的导师是美国工程院院士，专业排名也在前10（USNews），而且地理位置靠近Washington DC。缺点是：中国学生多，综合排名不给力。再考虑到Purdue是个大农村，就选择了UMD
+\subsection*{其他问题经验分享}
+大四（秋冬）出国科研交流不会影响申请，有机会一定要出去
+\clearpage
+% finish
+\cleardoublepage
+\chapter{CS MS 申请}
+% start
+\section{毛赜析}
+\hfill \href{mailto:maozeximzx@gmail.com}{maozeximzx@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] MS,PhD混申
+\item[申请方向] Machine learning为主
+\item[最终去向] CMU MLT
+\end{description}
+
+\subsection*{申请结果}
+\noindent Offer: Northeastern\\
+AD: CMU MLT, CMU CS, CMU VLIS, UCLA, Columbia, NYU, GWU\\
+Rej: UChicago PhD, UTAustin PhD/MS\\
+Withdraw: USC, Northwestern
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.91/3.91/88.5
+\item[Rank] 16/180
+\item[GRE（V/Q/AW）] 154/170/4.5
+\item[TOEFL] 107(S24)
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] 陈越
+\item[项目] UChicago暑期科研交流
+\end{description}
+\clearpage
+% finish
+% start
+\section{张言}
+\hfill \href{mailto:wizard19900509@gmail.com}{wizard19900509@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] Master
+\item[申请方向] CS
+\item[最终去向] MS@UCSD
+\end{description}
+
+\subsection*{申请结果}
+\noindent AD@UCSD\\
+AD@Brown\\
+REJ@Purdue\\
+REJ@Cornell\\
+REJ@GaTech\\
+REJ@UPenn
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.52/3.9/82.04
+\item[Rank] top 15\%(竺院排名)
+\item[GRE（V/Q/AW）] 149/169/3.0
+\item[TOEFL] 28+26+22+27
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] CCNT/邓水光
+\item[项目] SRTP，姥姥实验室医学图像处理项目，参加ACM集训队
+\item[实习] 北京小米科技iOS开发，杭州快拼科技iOS开发。
+\item[获奖] ACM校赛\&省赛二等奖
+\end{description}
+\subsection*{最终择校的考虑}
+专排+加州的location
+\clearpage
+% finish
+% start
+\section{刘悦}
+\hfill \href{mailto:shialiu22@gmail.com}{shialiu22@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] Master
+\item[申请方向] Information Systems, Computer Science, Statistics, Financial Engineering
+\item[最终去向] CMU MS, Master of Information Systems Management (MISM)
+\end{description}
+
+\subsection*{申请结果}
+\noindent AD:\\
+MISM@CMU\\
+CS@UTAustin\\
+CS@Northwestern\\
+CS@USC\\
+CS@GWU\\
+Stat@Columbia\\
+\\
+Rej:\\
+CS@UCLA\\
+CS@CMU\\
+\\
+Withdraw:\\
+CS@NYU\\
+CS@NEU\\
+FE@USC\\
+Stat@U Illinois Chicago
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.84/?/?
+\item[Rank] ?
+\item[GRE（V/Q/AW）] 161/169/4.5
+\item[TOEFL] 118
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[项目] SRTP: Data mining on social network
+\item[实习] Information Technology Department, Bank Of China Guangxi Branch
+\item[获奖] Third-Grade Scholarship in 2011-2012
+\end{description}
+\subsection*{个人申请总结链接}
+http://blog.renren.com/blog/285880489/898478402
+\subsection*{选校标准及经验}
+0.必须在大中城市
+1.专排和综排
+2.招收人数
+\subsection*{PS经验}
+Write your own first version, discuss it with trustable third-parties (friends, teachers, etc.), then leave it with a professional editing institution. ￥1000- will make it.
+\subsection*{最终择校的考虑}
+0. Boyfriend
+1. Almost dream school and program
+2. Parents' favor of the program's nature
+\subsection*{其他问题经验分享}
+Never go for application agencies. Consult them, then do all those things by yourself.
+\clearpage
+% finish
+% start
+\section{吕萌}
+\hfill \href{mailto:lvllaby@gmail.com}{lvllaby@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] Master
+\item[申请方向] CS
+\item[最终去向] UCLA MS
+\end{description}
+
+\subsection*{申请结果}
+\noindent AD: UCLA CMU-VLIS UCSD USC UT Austin
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.88 88
+\item[GRE（V/Q/AW）] 154 168 3.5
+\item[TOEFL] 114 20
+\end{description}
+
+\clearpage
+% finish
+% start
+\section{倪安迪}
+\hfill \href{mailto:glacebleue@gmail.com}{glacebleue@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国|欧洲
+\item[MS/PhD] Master
+\item[申请方向] CS CE(ECE)
+\item[最终去向] CMU.MSIN (5k TW ...)
+\end{description}
+
+\subsection*{申请结果}
+\noindent Ad: TU/e EMECS EMDC UCI.NetSys MSIT-ESE MSIN NWU OSU NYU-Poly URoch WPI NEU\\
+Rej: UPenn UFL UCSD UMich\\
+Pending: USC UPitt CMU.ECE
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.85//
+\item[GRE（V/Q/AW）] 158/169/3
+\item[TOEFL] 107
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[实习] 水实习*2
+\end{description}
+\subsection*{个人申请总结链接}
+待写……
+\subsection*{选校标准及经验}
+各档次都要有，避免悲剧
+可以找一些没什么人申但其实还好的
+不到最后一刻不要放弃
+切勿妄自尊大/菲薄
+\subsection*{PS经验}
+尽早开始准备
+注意学术向和非学术向项目的要求区别
+如果学校很多，可以自己写一个模板，但要根据项目要求更换中间的经历，以及开头结尾展现的对对方学校和项目的了解，和自己与该项目的match点
+\subsection*{最终择校的考虑}
+工作向，选big name
+\subsection*{其他问题经验分享}
+如果大三科研之路还不明朗，去找个实习会比较好
+\clearpage
+% finish
+% start
+\section{邹天旻}
+\hfill \href{mailto:zoutianmin@126.com}{zoutianmin@126.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] MS,PhD混申
+\item[申请方向] 主申图形学、图像处理
+\item[最终去向] CMU-VLIS，MS
+\end{description}
+
+\subsection*{申请结果}
+\noindent AD CMU-VLIS, UCLA, UCSD, UNC, UPenn-CGGT, USC, UCI\\
+REJ UIUC, UTAustin, Gatech, Brown, Purdue, UCSB, NCSU\\
+Withdraw UBC
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] Overall 3.94 (88.51), 3rd Yr 3.97 (88.52)
+\item[Rank] 20左右？忘了。。。
+\item[GRE（V/Q/AW）] 500+790+3.5
+\item[TOEFL] 106
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] CADCG
+\item[项目] 实验室项目，校SRTP，北卡州立大学暑期科研交流
+\item[获奖] 学业奖学金什么的，没有竞赛
+\end{description}
+\subsection*{选校标准及经验}
+基本根据专排选校的，20名以前去掉一些基本不可能进的和一些不是特别想去的，然后20名后找了几个听说过的学校保底，但后来想想早知道不申这几家了，申请都好贵的。然后看看有的学校的项目有没有很不喜欢的，那就不申了。再看看有没有什么项目特别特别喜欢的，那就主申了。某些名声特别好的学校就更加主申了。然后可以考虑多申几个不同方向以备选择，比如我主申图形学、图像处理之外，还申了科学计算、可视化、分布式计算等几个方向也有，但申的很少，也忘了中没中了。
+\subsection*{套磁经验}
+没套磁
+\subsection*{PS经验}
+应该好好考虑构思一下，感觉自己写的不好，应该先多跟别人交流交流再写的。
+\subsection*{最终择校的考虑}
+选择的时候感觉相比在实验室读博五年，可能更喜欢直接工作去，想想CMU学校排名不错，然后VLIS往年就业形式不错，看看课程含金量挺高的。再加上感觉这个项目学习的内容也算比较前沿和实用的技术，虽然要换方向，但是总体上前景应该还算不错的。虽然CMU相对其他学校学费贵点，但其实感觉一般大部分学校差不多都这个价格，其实差距不算很多，所以问题不是太大。
+\subsection*{其他问题经验分享}
+当年打算主申硕士的，最后决定完以后，突然又感觉读个博士也挺好的。早知道多申几个PhD了，这样选择余地可以大一点。到最后决定完了才发现博士申少了，这就亏大了。应该一半硕士一半博士的。然后选校梯度还是没拉开，有几家学校一起发录取的时候，其实没什么大区别的，很难说究竟哪家好。其实应该早点自己心里排个名次的，这样也不用那么纠结。
+\clearpage
+% finish
+% start
+\section{钱渊如}
+\hfill \href{mailto:qianyuanru@gmail.com}{qianyuanru@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国|加拿大
+\item[MS/PhD] Master
+\item[申请方向] Machine Learning, Data mining, Information retrieval
+\item[最终去向] UT-Austin
+\end{description}
+
+\subsection*{申请结果}
+\noindent AD: UT-Austin(accept), TAMU, UCSD, USC, CMU\\
+Offer: Alberta（\$24000/y）\\
+Rej：UW-Madision，UIUC，Toronto，Dartmouth，Yale，Purdue\\
+Pending: Waterloo, UBC(有面试目测悲剧)，UNC（忘记我了。。）
+
+\subsection*{选校标准及经验}
+选校标准：
+1. Master，最好有能拿钱或有较大的拿钱的机会（TA or RA）。
+2. 不想读纯course-base的，要能有一些继续research的机会，因为自己兴趣所在外加之后说不定会继续phd。
+3. 不错的就业前景。
+在这两条基础上，就有了以上的选校名单。其中加国的学校是满足1，2的，但3的话相较美帝同等级学校略吃亏。
+美帝的满足1，2的ms项目据我所知的有: CMU的academic ms program，Wisc, UIUC的academic ms, UT-Austin, UNC。。。
+其他一些都是随便申的，像Yale的话是硬件控，每年收的人很少（20左右？），没有很出色的三围不要申。。。Purdue今年貌似收的人非常少（也是20出头)，看有背景超级好的大牛也被据了的，反正我是看申的人多寄材料便宜才跟风申的 - -。
+保底的学校有USC(ZJU感觉是个人都没问题.....), Alberta，Tamu，Dartmouth（最后出的，没想到会悲剧，看一些背景比我差很多的也被录了，所以运气也很重要）。
+UNC应该也是悲剧，其中的教训提醒下，因为托福注册邮箱和地址与申请他家时用的邮箱地址都不一样，在他家结果出了很多的时候我的状态还是incomplete，最后小蜜才通知我说送去的托福成绩和我注册信息mismatch。。。匆匆忙忙截图证明完成的时候估计人已经收完了。。。
+\subsection*{套磁经验}
+初期心血来潮套过几个要么不收人要么石沉大海，所以中后期就没再套过，也和自己烦躁的心情有关。
+申请下来感觉对美帝的MS，陶瓷不是那么重要，不错的三围（GPA最重要，T别太低，G有就行）已经能保证不错的结果。
+但如果要申加拿大的MS的话，感觉陶瓷还是必须的，像到现在加国还有两所没结果就是很好的例子。虽然像UT，UBC某些组明确写着不鼓励套磁但感觉还是能套就套，特别是和教授背景match的话。觉得这些学校是先刷硬件刷掉一部分人然后老师再从剩下的人里挑人，所以如果一直没人看中你的话可能4，5月都会没消息。这时候积极主动的陶瓷往往能让自己的机会放大很多。像UBC就被反套了(受宠若惊唯一的面试)，和教授的聊天中就得知他是今年特别缺人，就自己从一堆申请者里找硬件还行研究背景相近的人来面试。
+\subsection*{PS经验}
+申MS的话PS不是特别重要，但好的PS绝对能使申请锦上添花。
+我自己的话是自己先写然后找98的professor改的，感觉还不错，至少没拖后腿。
+申研究型的MS的话PS中关于自己research的词一定要准确，感觉一些prof挑人就是在库里搜key words(纯属个人猜测)。
+\subsection*{最终择校的考虑}
+Austin Finally. 自己结果里最符合之上择校标准的一所了。
+\subsection*{其他问题经验分享}
+有问题email qianyuanru@gmail.com就行\textasciitilde{}
+\clearpage
+% finish
+% start
+\section{陆少超}
+\hfill \href{mailto:328969477@qq.com}{328969477@qq.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国|加拿大
+\item[MS/PhD] Master
+\item[申请方向] game，cg
+\item[最终去向] UPenn-CGGT，图形学和游戏结合的项目，一年半，校招有机会去dreamworks
+\end{description}
+
+\subsection*{申请结果}
+\noindent offer@Alberta\\
+AD@CMU-ETC\\
+AD@UPenn-CGGT\\
+AD@UCSD
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] total3.78，major3.86
+\item[GRE（V/Q/AW）] 570/800/3.5
+\item[TOEFL] 102(S23)
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] CAD\&CG 陈为
+\item[实习] 暑假，上海腾讯北极光工作室，游戏引擎研发
+\end{description}
+\subsection*{PS经验}
+看牛人的分享，找关键信息，参照着写。到处找人修改
+\subsection*{最终择校的考虑}
+CMU学业负担可能太重，UPenn的综排还不错，将来倾向于去dreamworks就业，所以选了后者
+\clearpage
+% finish
+% start
+\section{欧非}
+\hfill \href{mailto:zgzjhzxhq@gmail.com}{zgzjhzxhq@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国|加拿大
+\item[MS/PhD] Master
+\item[申请方向] Algorithm Design and Analysis, Algorithmic Game Theory
+\item[最终去向] University of Wisconsin-Madison, with RA.
+\end{description}
+
+\subsection*{申请结果}
+\noindent Offer: University of Wisconsin-Madison\\
+Rej: University of Toronto, University of Waterloo
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.99
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[获奖] 曾获国奖、校三好、校优秀学生一等奖学金、校优秀毕业生
+\end{description}
+\subsection*{选校标准及经验}
+除了从官方网站上面获得信息，还应该更多地咨询申请学校学长学姐的信息和意见综合参考。
+\subsection*{套磁经验}
+加拿大的学校套磁的比重大一些，应当重视。美国学校不需要太多套磁。
+\subsection*{PS经验}
+让尽可能多的人提意见，但是所有修改务必亲力亲为。
+\subsection*{最终择校的考虑}
+唯一的offer，经济上得以独立是一件高兴的事情。
+\clearpage
+% finish
+% start
+\section{张翔}
+\hfill \href{mailto:alexokitazhang@gmail.com}{alexokitazhang@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国|加拿大
+\item[MS/PhD] Master
+\item[申请方向] 计算机游戏
+\item[最终去向] mcgill ms
+\end{description}
+
+\subsection*{申请结果}
+\noindent offer:queens\\
+ad:mcgill rit digipen\\
+rej:toronto ubc
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 4.28/4.29/88
+\item[Rank] 39
+\item[GRE（V/Q/AW）] 520/800/4
+\item[TOEFL] 101
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] 普适计算 陈岭
+\item[项目] 自己做的两个游戏，属于自己倒腾当作品集的，游戏方向作品集还是挺重要的
+\item[获奖] 学业二、三奖，还有优秀团员，优秀文体奖学金什么的
+\end{description}
+\subsection*{选校标准及经验}
+加拿大top6 美国游戏设计top6（根据普林斯顿的游戏设计学校排名）
+\subsection*{套磁经验}
+这部分做的不好，没什么要说的。不过有一点小心得。第一次套的时候对方可能会象征性的回复一下，就是所谓的模版。不要看到是模版就把邮件删了。以后发邮件的时候就用这个邮件回复，这样对方看到邮件的时候后面会多出括号+通信次数，比较容易引起对方的注意
+\subsection*{PS经验}
+自己写加外教修改，没有找中介。实力还是王道，没实力写PS的时候明显觉得\&*\%￥
+\subsection*{最终择校的考虑}
+有较多机会得到奖学金，且有网络游戏实验室，自己比较喜欢
+\clearpage
+% finish
+% start
+\section{俞涛}
+\hfill \href{mailto:yutaoitper@gmail.com}{yutaoitper@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] Master
+\item[申请方向] CS
+\item[最终去向] VLIS CMU
+\end{description}
+
+\subsection*{申请结果}
+\noindent AD: VLIS MSIN eBiz@CMU; Yale Brown UCLA UCSB Columbia MCS@UIUC USC\\
+Rej: UCSD Meng@Cornell Berkeley
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.89/4
+\item[GRE（V/Q/AW）] 156/170/4
+\item[TOEFL] 108(24)
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] 浙大CAD可视化小组  陈为 / 超大规模信息系统  孙建玲
+\item[实习] IBM  Internship
+\end{description}
+\subsection*{个人申请总结链接}
+http://www.1point3acres.com/bbs/thread-61939-1-1.html
+\clearpage
+% finish
+% start
+\section{魏薇}
+\hfill \href{mailto:cici.ww@qq.com}{cici.ww@qq.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 香港
+\item[MS/PhD] Master
+\item[申请方向] 电子商务与互联网工程（E-commerce \& Internet Computing），计算机科学与技术(Computer Science)
+\item[最终去向] 香港大学电子商务与互联网工程MS
+\end{description}
+
+\subsection*{申请结果}
+\noindent 电子商务与互联网工程MSc(Master of Science) AD\\
+计算机科学与技术MSc AD
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.84
+\item[Rank] 3/54
+\item[TOEFL] 104
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] 云计算与社交网络实验室，张宏鑫
+\item[项目] Web前端开发    2011.11-2012.4
+使用python/html/css/js等语言，设计实现了SNS模块的原型系统
+\item[实习] 贝恩管理咨询公司    兼职项目助理    2012.10-2013.1 
+浙江中控    产品开发工程师    2011.7-2011.8 
+过来人咨询有限公司    行业分析员    2010.7-2010.8
+\item[获奖] 哥伦比亚大学金融与咨询交流项目团队案例竞赛第二名奖学金
+有道难题2012应用创新大赛（网易公司）东部区一等奖2012.7
+\end{description}
+\subsection*{选校标准及经验}
+不出国，所以去香港。内地认可度最高的香港的大学：港大，港科技。
+\subsection*{最终择校的考虑}
+奔着商科专业去的。了解到这个专业每届一共招60人左右（其中应届毕业生两三个），课程内容包含大量讨论、实践（勘店）、写作等，所以觉得值得一读。TMSP项目只推荐这一个专业，其它专业
+如果学CS还是去港科技吧。
+\subsection*{其他问题经验分享}
+本人情况比较特殊，大三暑假之前即通过TMSP项目的三轮面试提前拿到了这个AD。当时是为大四秋冬可以全职实习而规划了这个保底。现在不是不遗憾的，应该认真申请北美来着，即使申到名校的非理工科专业的概率未知。不过就这样吧，好好找工作吧。
+两个体会：
+1.强烈建议大三暑假开始前充分了解并确定下一步的去向，规划好每一步的时间，坚持自己的选择不要动摇。硕/博，什么国家，毕业之后在什么国家的什么公司工作，去哪里实习...这些问题必须有个答案，即使迷茫也必须选定答案。摇摆不定就死定了。
+2.Target school是王道。如果你去了牛津剑桥常春藤，很好，它们被全世界的所有公司认可；如果不能去顶尖名校，请选择你想去的公司认可的学校。举个例子，网易过简历关的人浙大的占绝对多数，什么新加坡国立北清复交即使比浙大好也没用滴。
+\clearpage
+% finish
+% start
+\section{童豪}
+\hfill \href{mailto:tonghaozju@gmail.com}{tonghaozju@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] Master
+\item[申请方向] Computer Science
+\item[最终去向] undecided, perhaps USC
+\end{description}
+
+\subsection*{申请结果}
+\noindent AD: Rice, USC, UCI\\
+Rej: CMU(IIS/VLIS/INI), UCLA, UCSD, UCSB, Brown, UIUC\\
+Waiting-list: Columbia
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.79/86.16, 3.96/88.27
+\item[GRE（V/Q/AW）] 670/800/2.5
+\item[TOEFL] 101
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] CCNT+陈华钧
+\item[实习] 1.Baidu
+2.Exacloud
+\item[获奖] only 3rd prize scholarship
+\end{description}
+\subsection*{选校标准及经验}
+一亩三分地，看以往到录取情况，招多少人，背景如何
+\subsection*{PS经验}
+enlight-writing不错，推荐编辑Grace
+\subsection*{最终择校的考虑}
+location, ranking
+\subsection*{其他问题经验分享}
+暂无
+\clearpage
+% finish
+% start
+\section{王九零}
+\hfill \href{mailto:wjl2525@gmail.com}{wjl2525@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国|加拿大
+\item[MS/PhD] MS,PhD混申
+\item[申请方向] computer vision
+\item[最终去向] Austin, Master, no funding
+\end{description}
+
+\subsection*{申请结果}
+\noindent offer : Waterloo, UBC, SFU\\
+ad : Austin, Wisconsin, UNC, CMU VLIS, UCLA, UCSD, USC\\
+rej : UIUC, UPenn, Brown, Washington(PhD), CMU LTI\\
+withdraw : VT PhD
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.85/3.95/87.8
+\item[Rank] top5\%(ckc)
+\item[GRE（V/Q/AW）] 700+800+3.5
+\item[TOEFL] 103(22)
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] 微软视觉感知实验室，宋明黎
+\item[项目] ZJU实验室水项目+水srtp, related to face recognition
+PolyU summer research intern, related to biometric
+TTIC research intern from Sep,2012 till Apr 2013, related to visual attributes
+\item[实习] 见14
+\item[获奖] 学业二等奖学金
+\end{description}
+\subsection*{选校标准及经验}
+对于ZJU CS申请美国master的同学来说，如果GPA > 87，Toefl > 100, GRE > 1300+3.5（自行换算），强烈建议从top program开始把想申的都申请了。USC保底即可。
+Master项目多申一个学校需要多花的力气并不大，但是很可能这个学校今年就扩招了，所以哪怕是去年的申请形势也不是很可靠，比如今年的UCSD,CMU-VLIS等。
+\subsection*{套磁经验}
+加拿大强烈建议陶瓷，美国申请master，无陶瓷。
+\subsection*{PS经验}
+网上资料很多的，无须赘述。Master项目中所占比重不大。
+\subsection*{最终择校的考虑}
+目标是在美国就业，最近H1B名额紧张，美国的机会无疑更多。Austin学费比较便宜，德州消费水平较低。
+\clearpage
+% finish
+% start
+\section{张柱}
+\hfill \href{mailto:zz19900307@qq.com}{zz19900307@qq.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国|加拿大
+\item[MS/PhD] Master
+\item[申请方向] Computer Science, Software Engineering, Financial Engineering
+\item[最终去向] McGill University， MS
+\end{description}
+
+\subsection*{申请结果}
+\noindent Offer: Alberta University, CS, \$8000/term, 12 TA or RA hours/week\\
+AD: McGill University, CS(Thesis)\\
+AD: Carnegie Mellon University (CMU) - Electrical and Computer Engineering (ECE), remotely during first semester.
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 总GPA：3.79/4.0，平均分86/100；第三年3.98/4.0，91/100
+\item[Rank] 软工9/59，第三年2/59
+\item[GRE（V/Q/AW）] 145/168/3.0
+\item[TOEFL] 100(28+26+18+28)
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] 澳大利亚UNSW大四交流8个月，导师Boualem
+\item[实习] 杭州红杉树暑假1个月
+\item[获奖] 学校的学业一等奖和三等奖
+\end{description}
+\clearpage
+% finish
+% start
+\section{李闽}
+\hfill \href{mailto:min.lee.limin@gmail.com}{min.lee.limin@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] Master
+\item[申请方向] Data mining, Machine learning
+\item[最终去向] UIUC MS TA+TW
+\end{description}
+
+\subsection*{申请结果}
+\noindent Offer UIUC M.S.\\
+AD CMU VLIS, CMU ebiz, UCSD, Yale\\
+Rej CMU LTI, Stanford, Princeton, UWM, Brown, Upenn, UCLA\\
+Withdraw Columbia
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.86/3.99/88
+\item[Rank] 没交排名
+\item[GRE（V/Q/AW）] 640/790/3.0
+\item[TOEFL] 112
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] Eagle实验室,卜佳俊老师
+\item[项目] 一些水项目包括SRTP，一个创业项目还有一些课程项目，实验室项目包括一个关于新浪微博的数据挖掘研究，无paper。
+\end{description}
+\subsection*{选校标准及经验}
+因为没有想好要不要读PHD和本身没有paper，所以完全没有考虑PHD项目，申请的全部都是MS。选校目标为专排前20的拉一个list，一个一个去学校的官网看，不喜欢的去掉。一些比较specific的经验：princeton的MS一般是不收大陆本科背景的，Upenn的MIS是不收AW3.0的（直接filter掉）
+\subsection*{PS经验}
+master不需要全部都是research相关的，我只写了一段research内容，两段项目，一段很短的性格特点方面，大概800字左右。我的风格是不涉及太多技术细节，每段是简要的介绍，难点或者遇到的困难。
+\subsection*{最终择校的考虑}
+UIUC的grad排名较高，我的data mining方向学术也很好，MS项目的reputation和设计都不错，可以有一些research的经验，导师也很好。另外就是有钱啦。
+\clearpage
+% finish
+% start
+\section{曹云生}
+\hfill \href{mailto:cloudcaoys427@gmail.com}{cloudcaoys427@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] MS,PhD混申
+\item[申请方向] System, Network
+\item[最终去向] CMU:MSIT-VLIS
+\end{description}
+
+\subsection*{申请结果}
+\noindent AD: UPenn, USC, CMU-VLIS\\
+Rej: Duke, Northwestern, UCLA
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[Rank] 18/180
+\item[GRE（V/Q/AW）] 157/170/3.5
+\item[TOEFL] 107
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] CCNT-ECE 顾宗华
+\end{description}
+\subsection*{其他问题经验分享}
+我觉得选校更加注重专业排名而不是综合排名，因为毕业后的成功靠个人能力而非学校名气。希望学弟学妹们在今后的出国申请中顺利～
+\clearpage
+% finish
+% start
+\section{刘胡世阳}
+\hfill \href{mailto:melody.lhsy@gmail.com}{melody.lhsy@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] Master
+\item[申请方向] Computer Science; Management Science \& Engineering
+\item[最终去向] Yale+MS, general track, tuition \$36500 per year
+\end{description}
+
+\subsection*{申请结果}
+\noindent AD: Yale, CMU-VLIS, UCLA, Columbia\\
+Rej: Stanford, Berkeley, Cornell, CMU-eBusiness
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.93
+\item[Rank] 3\%
+\item[GRE（V/Q/AW）] 690/800/3
+\item[TOEFL] 115
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[获奖] National Mathematic Modeling Contest, 1st Prize
+\end{description}
+\subsection*{选校标准及经验}
+Good job placement / General ranking / Geographical position / Program reputation etc.
+\subsection*{最终择校的考虑}
+better life style
+\clearpage
+% finish
+\cleardoublepage
+\chapter{转系申请}
+% start
+\section{侯思宇}
+\hfill \href{mailto:yvonnetheone0@gmail.com}{yvonnetheone0@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] Master
+\item[申请方向] Financial Engineering
+\item[最终去向] Columbia Univ., IEOR Department, M.S.
+\end{description}
+
+\subsection*{申请结果}
+\noindent AD: Columbia, WUSTL, UIUC, BU, Rutgers, UMN;\\
+Rej: Cornell, NYU, U Mich;\\
+Pending: UCLA, USC;
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.67/4.0
+\item[Rank] 不清楚
+\item[GRE（V/Q/AW）] 590/800/4.5
+\item[TOEFL] 111
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] 当时还没有
+\item[项目] 两个金融数学方向SRTP，一个CS的SRTP；
+一个金融数学方向国创项目；
+\item[实习] 百度实习两个月，国家开发银行实习一个月，花旗银行实习一个月。
+\item[获奖] 数学建模竞赛校级三等奖
+\end{description}
+\subsection*{选校标准及经验}
+选好保底校后将专排前15且录取率不是太低的都申一遍
+\subsection*{PS经验}
+最好找native speaker帮忙改，简洁清楚比文笔重要。No bragging! 金融工程基本都面试，所以PS一定要讲实话\textasciitilde{}
+\subsection*{最终择校的考虑}
+我是综排控\textasciitilde{}
+另外reputation, career service, placement rate \& opportunity都要重点考虑。
+\clearpage
+% finish
+% start
+\section{华俊}
+\hfill \href{mailto:jun.hua.yale@gmail.com}{jun.hua.yale@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] Master
+\item[申请方向] MFE,CS
+\item[最终去向] Yale
+\end{description}
+
+\subsection*{申请结果}
+\noindent Yale-CS\\
+CMU-MSCF\\
+NYU-MFE\\
+Baruch-MFE
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.73/83.5
+\item[Rank] 30
+\item[GRE（V/Q/AW）] 700/800/3.0
+\item[TOEFL] 106
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] 无+钱沄涛教授
+\item[实习] 银河证券投行部
+摩根士丹利华鑫基金量化投资部
+\item[获奖] （三无：无三号，无优秀团干部，无奖学金）康师傅来一瓶奖励
+\end{description}
+\subsection*{选校标准及经验}
+就业好，名气大
+\subsection*{PS经验}
+找一个靠谱的中介比什么都重要！推荐Essaypack
+\subsection*{最终择校的考虑}
+就业！
+\clearpage
+% finish
+% start
+\section{宗泽冰}
+\hfill \href{mailto:zongzebing@gmail.com}{zongzebing@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] Master
+\item[申请方向] ECE
+\item[最终去向] UCLA+MS
+\end{description}
+
+\subsection*{申请结果}
+\noindent AD：UCLA，UCSD，Cornell(Meng)，CMU(远程),USC,OSU\\
+\\
+Rej：Stanford,UCB，UT-Austin,UIUC,GaTech,Columbia
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.91/3.92/88
+\item[Rank] 31/225
+\item[GRE（V/Q/AW）] 660+800+3.5
+\item[TOEFL] 102
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] 多媒体通信+虞露
+\item[项目] SRTP，华为杯创新大赛
+\item[实习] IBM summmer Intern
+\item[获奖] 校奖学金
+\end{description}
+\subsection*{选校标准及经验}
+申MS，定位在专业前20的学校，拿了USC和OSU保底，前10的学校作为冲刺。
+\subsection*{套磁经验}
+寒假套了Cornell，UIUC，UT-Austin做多媒体通信/图像处理/模式识别的老师，都没有人回复。
+\subsection*{PS经验}
+1.找了Enlight Writing帮我一起写PS。
+
+2.理工科的学生尽量多写写自己的研究或者做项目经历，同时再加上属于自己的一些感想。
+\subsection*{最终择校的考虑}
+UCLA的专排，综排和地理位置都不错；以后打算做data mining，LA CS的computer system/network都很强，也有几个老师做web data mining的。
+\subsection*{其他问题经验分享}
+1.如果有读博打算但是没有什么研究经历的也可以试着硕博混申（只申了MS现在有点后悔了）
+
+2.如果想转CS，平时有空多学些CS的课程，增加自己的编程能力，申请时直接申ECE下的CE或CS（直接申CS可能比较难）；如果对自己的CS背景没那么强，也可以先申本专业，到了学校之后再转，一些学校有internal application的政策，比如UCLA（能不能转专业，转专业难不难也要在事先了解清楚）。
+\clearpage
+% finish
+% start
+\section{何子健}
+\hfill \href{mailto:hezijian@126.com}{hezijian@126.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] Master
+\item[申请方向] Computer Vision
+\item[最终去向] UCLA MS
+\end{description}
+
+\subsection*{申请结果}
+\noindent offer: HKU HKUST\\
+AD: Duke UCSB UCLA\\
+Rej: Stanford UCB CMU(RI) UCSD
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.94/4.0  89.9/90
+\item[Rank] 11/140
+\item[GRE（V/Q/AW）] 152+170+3.5
+\item[TOEFL] 98
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] 机器人实验室-视觉组 熊蓉、姜伟
+\item[项目] 北卡科研交流
+\item[获奖] 一二等奖学金，外设若干
+\end{description}
+\subsection*{最终择校的考虑}
+专排、Location
+\clearpage
+% finish
+% start
+\section{于佳宁}
+\hfill \href{mailto:cy_yujianing@126.com}{cy\_yujianing@126.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 加拿大
+\item[MS/PhD] Master
+\item[申请方向] ECE/CS (本科是信息与通信工程，申请的方向特别杂，自己对申请的方向也没有特别的追求，只要可以接受的都可以)
+\item[最终去向] University of British Columbia，Master of Science，Computer Science，
+Offer：first year： 19000+3200
+       Second year：20000+3200
+\end{description}
+
+\subsection*{申请结果}
+\noindent 申请CS的主要有四个学校\\
+Offer：UBC，Waterloo，Alberta\\
+Rej：Toronto\\
+还申了ECE的保底，就不赘述了\\
+其中Waterloo我申请的ECE的software system，这个学校的分布式系统，网络系统，操作系统，信息安全，软件工程在ECE下面，是ECE下面的software system，老师在ECE和CS系都教课，他们也有权利同时在ECE和CS招学生，学生也可以同时选ECE和CS的课，Toronto也是这样的
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] Overall: 3.91,89.47 Third Year:4,90.58
+\item[Rank] Top 5\%
+\item[GRE（V/Q/AW）] 153/170/3.5
+\item[TOEFL] 28(R)+26(L)+24(S)+28(W)=106
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[所在实验室及导师] 是在信电系的，和申请的方向没有关系
+\item[项目] 2012NCSU暑期科研交流
+\item[获奖] The 2012 Mathematical Contest in Modeling(MCM), Award: Finalist(\&lt;Top 1\%)
+The 2012 International Genetically Engineered Machine (iGEM), Award: Silver
+剩下的都是国内和学校的奖了，感觉没什么用
+\end{description}
+\subsection*{选校标准及经验}
+因为一直很想去加拿大，没考虑过美帝，所以主申的加拿大，感觉申请也相对容易一些，还申了一些美国的master保底
+主要参考了以下文章：
+1. http://www.1point3acres.com/bbs/thread-252-1-1.html
+2. http://www.1point3acres.com/bbs/thread-39943-1-1.html
+3. 浙大计算机2009飞跃手册（98上贴搜“飞跃手册”就可以看到很多系的飞跃手册）
+http://www.cc98.org/dispbbs.asp?boardID=74\&ID=2880459
+4. 以及北大，交大的各种飞跃手册
+加拿大的学校比较少，不需要选，我只申了排名前6的，我很认同第一篇文章中的排名，CS申了UT，Waterloo,UBC和Alberta,ECE申了McGill和McMaster，感觉浙大的学生成绩和排名差不多的Alberta和McMaster就可以保底了
+\subsection*{套磁经验}
+1.申请材料提交后再套磁更有效，加拿大除了UBC的CS是委员会制的，其他几乎都要套磁，尤其Waterloo，没有委员会，只能套磁，有老师要才能录取.
+2.不海套，集中精力套最想去的老师或是感觉可能会要你的老师，我只套了对于我来说比较难进的两个学校Waterloo和Toronto，这两个学校对于国际学生招收特别严格，能去的国际学生比较少，我两个学校各套一个老师，结果套中了Waterloo的，被Toronto的老师“呵呵”了，集中精力套磁，准备面试，效果很好。
+\subsection*{PS经验}
+1. 表达你最想说的，不要雷同，根据自己的情况写，我的情况很特殊，因为要转专业，所以主要围绕了，我为什么想转CS，以及我为了转CS做了哪些努力，大体结构是：
+    1）为什么我最初对CS的某个小方向产生了兴趣：主要举了一个曾经在新闻中看到了例子，我也确实是因为看到一些科技新闻萌发了想转专业的想法，就是按照当时真实的感受写的，写了一些自己的观点.
+    2）因为什么开始下定决心开始转CS：最直接的原因就是数模竞赛，用两段主要写了数模课程的学习和数模竞赛的各种经历，那时候学了很多算法，自己也学了很多启发式算法，NP问题的解法，还练习了编程等等，事实证明数模美赛获得特等奖提名对我的申请有很大的帮助，Waterloo的一个老师还有UBC的一个老师都是因为我的数模经历才反套我的
+    3）既然下定决心转CS，就开始写我为了申请CS做了哪些努力：主要是两点，一个是学了哪些CS的课程，一个是NCSU的科研交流，虽然CS的学生是几乎不会在PS中写他们上了哪些课，但是我还是想写，因为想让别人知道，我是很早就开始准备的，而不是盲目的跟风申请CS
+    4）最后一段就是普通的，写了以后的career goal，为什么想申请这个学校，喜欢什么方向之类的
+    虽然别人看起来觉得很幼稚，但是这就是我最想表达的，基本上就是按照自己想倾诉的内容写的，我也不知道对于转专业的学生这样写算不算好，但是我自己感觉写的很充实，没有空洞的感觉
+
+2. 文章修改，同学修改+专业修改，因为找professor改的人太多了，在PS高峰期会等很久，而且为了避免太千篇一律，我选择了北大飞跃手册上推荐的网站，感觉改的很好
+\subsection*{最终择校的考虑}
+导师和学校排名综合考虑
+\subsection*{其他问题经验分享}
+因为是转专业，肯定是会被面试的，而且加拿大除非你特别优秀会直接给offer，一般都会有面试，我经历过各种各样的面试。其中Waterloo的最严格，有三轮
+1. 先进行了Skype面，包括CS的专业基础知识，比如data structure，OS之类的，还有数学问题，比如复杂度理论，NP问题，信息论，基础知识问的很细，如果都回答出来，可以给老师留下很好的印象，还有现场编程，老师给你一个问题，你要立即用Skype把代码一行一行的打过去，老师说主要想看你的编程思路。
+2. 用一个星期的时间写一篇research proposal，用老师给你的问题，几乎就是你研究生期间要做的问题，老师说open problems 和proposing some solutions 越creative，录取的几率越大。
+3. 限时coding，一般是两个小时两道题，三个小时3道题，或是3个半小时4道题，我coding比较弱，但是幸亏别人借给我一本ACM的书，我提前看过，也练了一些，勉强在规定时间内做好
+    面试过程中我最不好的就是口语表达，因为平时学的不是很认真，很多计算机术语用英语不会说，当老师问专业知识的时候不能用简短的词语说出来，表达很冗长，不清楚，如果你专业基础知识答不出来会给老师很不好的印象，其中一个面我的老师在面试的最后说让我好好提高英语，所以平时要多注意专业术语的英文表达，当然主要针对我这样英语特别差的人来说。
+\clearpage
+% finish
+\cleardoublepage
+\chapter{数媒申请}
+% start
+\section{高杰}
+\hfill \href{mailto:605516437@qq.com}{605516437@qq.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国|加拿大
+\item[MS/PhD] Master
+\item[申请方向] 1.Computer Science  2.Game Development
+\item[最终去向] Rice CS Master
+\end{description}
+
+\subsection*{申请结果}
+\noindent AD:Rice PSU USC\\
+REJ:Toronto Waterloo Yale UW-Madison Columbia UCLA Brown Chicago \\
+WL:CMU-ETC\\
+Withdraw:UVA UMN Northwestern UNC
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.7/3.94(Third year)/84
+\item[Rank] 15\%
+\item[GRE（V/Q/AW）] 149/168/3
+\item[TOEFL] IELTS 7.0
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[项目] SRTP
+\item[获奖] 一奖 三奖 三好
+\end{description}
+\subsection*{选校标准及经验}
+选了太多大众情人校,事实证明硬件不行,很难申上这些学校,如Columbia UCLA Brown UW-Madison.
+另外综排高,专排一般的学校也很难申,需谨慎,如Yale Chicago.
+加拿大的学校后来才知道需要套磁,不然希望渺茫,我没套,所以两所都悲剧了.(Waterloo Toronto)
+\subsection*{最终择校的考虑}
+选Rice 是因为专排综排都有进Top 20
+然后够安全 物价低 地处休斯敦 也还算繁华
+能够体验小班教育
+\clearpage
+% finish
+% start
+\section{支一婷}
+\hfill \href{mailto:zhiyiting@gmail.com}{zhiyiting@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国|加拿大
+\item[MS/PhD] Master
+\item[申请方向] Game Development, General CS
+\item[最终去向] CMU-ETC (MS)
+\end{description}
+
+\subsection*{申请结果}
+\noindent AD(MS): CMU-ETC, RIT-GDD(with \$10792;可申请TA/RA)\\
+Pending(MS): SFU-IAT, NEU-CS, USC-Game
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 84
+\item[GRE（V/Q/AW）] 154+165+3.5
+\item[TOEFL] 28+30+27+30
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[项目] several game projects, animation projects and other art and/or programming works, sfu交流
+\item[实习] SAP Labs, Shanghai
+\item[获奖] 奖学金之类的
+\end{description}
+\subsection*{选校标准及经验}
+Game方向可选学校清单大致如下：CMU-ETC, USC, UoU-EAE,RIT, DigiPen, UCF-FIEA, UNC Chapel Hill, UC Irvine, NYU-ITP...可以参考Princeton Review的list
+\subsection*{其他问题经验分享}
+选择出国读master是一条不归路，选择读游戏设计更是一条不归路。就业相对传统CS的学生来说或许会变得更窄；但对想去游戏行业发展的也有可能是一条捷径。总之，申请只是一个起点，之后还是要靠自己努力啊！
+\clearpage
+% finish
+% start
+\section{申屠季辉}
+\hfill \href{mailto:cn.jhstjh@gmail.com}{cn.jhstjh@gmail.com}
+\subsection*{申请简介}
+\begin{description}
+\item[申请地区] 美国
+\item[MS/PhD] Master
+\item[申请方向] Game/Graphics
+\item[最终去向] USC
+\end{description}
+
+\subsection*{申请结果}
+\noindent AD: CGGT@Upenn, CS(Game)@USC, Visualization@TAMU, CS@GaTech, CS@Columbia\\
+Rej: CS@Cornell\\
+WL: ETC@CMU
+\subsection*{GPA/Rank/GRE/TOEFL}
+\begin{description}
+\item[总GPA/专业GPA/平均分] 3.8/4.0/87
+\item[Rank] 2@Digital Media
+\item[GRE（V/Q/AW）] 154/169/3
+\item[TOEFL] 112
+\end{description}
+
+\subsection*{科研/项目/实习/获奖}
+\begin{description}
+\item[实习] alibaba cloud computing
+\end{description}
+\subsection*{最终择校的考虑}
+选校磨了一个多月，还延长了一次deadline。。基本把能找到的所有的学校信息都挖光了。知道的越多反而越难选，每个学校都有好处和不好吧。其实可能当初申请的方向太集中了了一点。总之，最后还是选了更喜欢的课程和地理位置。毕竟么non-thesis master而已，科研什么的都不是关注的问题啦。
+\clearpage
+% finish
+
+
+\end{document}
